@@ -7,14 +7,12 @@ export interface FilesList {
 }
 
 export class MyDexie extends Dexie {
-    // 'friends' is added by dexie when declaring the stores()
-    // We just tell the typing system this is the case
     files!: Table<FilesList>;
 
     constructor() {
         super('myDatabase');
         this.version(1).stores({
-            files: '++id, name, file' // Primary key and indexed props
+            files: '++id, name, file'
         });
     }
 }
